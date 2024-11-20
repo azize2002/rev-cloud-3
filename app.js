@@ -4,12 +4,21 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
+const port = process.env.PORT || 4000;
 
 const indexRouter = require('./routes/index')
 //const usersRouter = require('./routes/users')
-
+// ajout 11
 const app = express()
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+// fin ajout 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
